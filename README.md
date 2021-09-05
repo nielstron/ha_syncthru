@@ -28,4 +28,4 @@ The configuration of this component is exactly the same as for [the core compone
 ## Contributions
 
 Feel free to open Pull Requests here or at
-the backend python script [pyblnet](https://github.com/nielstron/pysyncthru).
+the backend python script [pysyncthru](https://github.com/nielstron/pysyncthru).
