@@ -1,5 +1,5 @@
 {
-    "name": "BLNET",
+    "name": "Samsung SyncThru Printer",
     "content_in_root": false,
     "domains": ["blnet", "sensor", "switch"],
     "render_readme": true,
