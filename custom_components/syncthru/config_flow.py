@@ -30,9 +30,9 @@ class SyncThruConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             return await self._async_show_form(step_id="user")
         return await self._async_check_and_create("user", user_input)
 
-    async def async_step_ssdp(self, discovery_info: ssdp.SsdpServiceInfo) -> FlowResult:
+    async def async_step_ssdp(self, discovery_info: homeassistant.helpers.service_info.ssdp.SsdpServiceInfo) -> FlowResult:
         """Handle SSDP initiated flow."""
-        await self.async_set_unique_id(discovery_info.upnp[ssdp.ATTR_UPNP_UDN])
+        await self.async_set_unique_id(discovery_info.upnp[homeassistant.helpers.service_info.ssdp.ATTR_UPNP_UDN])
         self._abort_if_unique_id_configured()
 
         self.url = url_normalize(
@@ -48,7 +48,7 @@ class SyncThruConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             # Update unique id of entry with the same URL
             if not existing_entry.unique_id:
                 self.hass.config_entries.async_update_entry(
-                    existing_entry, unique_id=discovery_info.upnp[ssdp.ATTR_UPNP_UDN]
+                    existing_entry, unique_id=discovery_info.upnp[homeassistant.helpers.service_info.ssdp.ATTR_UPNP_UDN]
                 )
             return self.async_abort(reason="already_configured")
 
